@@ -65,4 +65,14 @@ function updateTimeBlocks() {
 
             });
 
-            
+            let noteArray = [];
+            function saveToLocalStorage(userInput, inputId) {
+                let noteObject = {
+                    note: userInput,
+                    note: inputId,
+                };
+                noteArray.push(noteObject);
+                localStorage.setItem("notes", JSON.stringify(notearray));
+                }
+
+                // local storage //
