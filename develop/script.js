@@ -58,3 +58,11 @@ function updateTimeBlocks() {
             }
 
             // Save Button //
+            $("saveBtn").click(function () {
+                let inputId = $(this).attr("data-hour");
+                let userInput = $ (`#input-${inputId}-text`).val();
+                saveToLocalStorage(userInput, inputId);
+
+            });
+
+            
