@@ -38,4 +38,23 @@ $("#timeBlockContainer").append(addTimeBlock);
 
 updateTimeBlocks();
 getFromLocalStorage();
+
 //color coding //
+
+function updateTimeBlocks() {
+    for (let i =1; i <= 24; i++) {
+        $(`#input-${i}`) .removeClass("past present future");
+
+        if (i < currentHour) {
+            $(`#input-${i}`).addClass("past");
+            }
+
+            $(`#input-${currentHour}`).addClass("present");
+
+            if (i > currentHour) {
+                $(`#input-${i}`).addClass("future");
+            }
+            }   
+            }
+
+            // Save Button //
