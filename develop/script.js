@@ -60,8 +60,8 @@ function updateTimeBlocks() {
             // Save Button //
             $("saveBtn").click(function () {
                 let inputId = $(this).attr("data-hour");
-                let userInput = $ (`#input-${inputId}-text`).val();
-                saveToLocalStorage(userInput, inputId);
+                    let userInput = $ (`#input-${inputId}-text`).val();
+                        saveToLocalStorage(userInput, inputId);
 
             });
 
@@ -69,10 +69,18 @@ function updateTimeBlocks() {
             function saveToLocalStorage(userInput, inputId) {
                 let noteObject = {
                     note: userInput,
-                    note: inputId,
+                        note: inputId,
                 };
                 noteArray.push(noteObject);
                 localStorage.setItem("notes", JSON.stringify(notearray));
                 }
 
                 // local storage //
+                function getFromLocalStorage() {
+                    if (localStorage.getItem("notes") !== null) {
+                        let storageNotes = Json.parse(window.localStorage.getItem("notes"));
+                        for (let i = 0; i < storageNotes.length; i++) {
+                            $(`#input-${storageNotes [i].hour}-text`).val(storageNotes[i].note);
+                        }
+                    }
+                }
